@@ -18,3 +18,8 @@ export interface Episodes {
   info: Info;
   results: Episode[];
 }
+
+export interface Character {
+  id: number;
+  name: string;
+}

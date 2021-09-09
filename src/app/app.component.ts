@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RickMortyService } from './rick-morty.service';
-import { Episodes, Episode } from './types';
+import { Episodes, Episode, Character } from './types';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,6 @@ import { Episodes, Episode } from './types';
 export class AppComponent {
   title = 'alpha';
   episodes?: Episodes;
-  single?: Episode;
   squared = 0;
 
   constructor(private rickMortyService: RickMortyService) {}
@@ -20,24 +19,11 @@ export class AppComponent {
 
     // subscribe takes an object
     this.rickMortyService.all().subscribe({
-      next: (data) => {
-        this.episodes = data;
+      next: (episodes) => {
+        this.episodes = episodes;
       },
       error: (err) => console.log('err:', err),
       complete: () => console.log('completed'),
     });
-
-    // or subscribe can take 3 functions
-    this.rickMortyService.getById(1).subscribe(
-      (data) => {
-        this.single = data;
-      },
-      (err) => {
-        console.log('err:', err);
-      },
-      () => {
-        console.log('complete');
-      }
-    );
   }
 }

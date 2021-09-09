@@ -10,7 +10,7 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     mockService = jasmine.createSpyObj(['all', 'getById', 'square']);
-    mockService.getById.and.returnValue(of({ name: 'Ricky Goes to Space' }));
+    mockService.getById.and.returnValue(of([{ name: 'Ricky Goes to Space' }]));
     mockService.all.and.returnValue(
       of({
         results: [{ name: 'Ricky1' }, { name: 'Ricky2' }, { name: 'Ricky3' }],
@@ -34,13 +34,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('alpha');
-  });
-
-  it('should display a single episode', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    fixture.detectChanges();
-    expect(app.single?.name).toBe('Ricky Goes to Space');
   });
 
   it('should display all episodes', () => {

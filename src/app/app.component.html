@@ -1,11 +1,6 @@
-<h1>Hello World</h1>
-
-<h2>Just One Ping</h2>
-<p>{{ single?.name }}</p>
-
 <h2>The List</h2>
 <ul>
-  <li *ngFor="let episode of episodes?.results">
-    {{ episode.name }}
+  <li *ngFor="let episode of episodes?.results" style="font-size: 10px">
+    <a [routerLink]="['/episode', episode.id]">{{ episode.name }}</a>
   </li>
 </ul>

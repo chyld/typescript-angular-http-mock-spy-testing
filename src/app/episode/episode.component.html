@@ -1,0 +1,19 @@
+<a routerLink="/">Home</a>
+
+<h2>Episode</h2>
+<p>{{ episode?.name }}</p>
+
+<h2>Characters</h2>
+<span
+  *ngFor="let c of characters"
+  style="
+    color: #e6c8de;
+    font-size: 10px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #757575;
+    display: inline-block;
+    background-color: indigo;
+  "
+  >{{ c.name }}</span
+>
